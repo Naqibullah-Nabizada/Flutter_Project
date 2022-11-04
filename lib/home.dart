@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+// import 'package:sqflite/sqflite.dart';
+// import 'package:path_provider/path_provider.dart';
 
 // ! Screens
 import 'package:app/screens/screen1.dart';
@@ -20,17 +23,19 @@ class Home extends StatelessWidget {
         child: SafeArea(
             child: Scaffold(
           appBar: AppBar(title: Text("زندگی نامه حضرت محمد (ص)")),
-          // drawer: Drawer(),
           body: Column(children: [
             Container(
               padding: EdgeInsets.all(12),
               width: double.infinity,
               height: 70,
               color: Color.fromARGB(255, 196, 193, 193),
-              child: Text(
-                'لا اله الله محمد رسول الله',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30),
+              child: Center(
+                child: AnimatedTextKit(repeatForever: true, animatedTexts: [
+                  TypewriterAnimatedText('لا اله الله محمد رسول الله',
+                      speed: Duration(milliseconds: 100),
+                      textStyle: const TextStyle(
+                          fontSize: 30, shadows: [Shadow(blurRadius: 30)]))
+                ]),
               ),
             ),
             Container(

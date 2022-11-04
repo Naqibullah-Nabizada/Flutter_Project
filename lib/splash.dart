@@ -1,5 +1,6 @@
 import 'package:app/home.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -9,10 +10,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // void initState() {
-  //   super.initState();
-  //   _handleSplash();
-  // }
+  void initState() {
+    super.initState();
+    _handleSplash();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,65 +28,45 @@ class _SplashScreenState extends State<SplashScreen> {
             height: 400,
             width: 400,
           ),
-          Text(
-            'لا اله الله محمد رسول الله',
-            style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600),
+          Center(
+            child: AnimatedTextKit(repeatForever: true, animatedTexts: [
+              TypewriterAnimatedText('لا اله الله محمد رسول الله',
+                  speed: Duration(milliseconds: 100),
+                  textStyle: const TextStyle(fontSize: 30, color: Colors.white))
+            ]),
           ),
           SizedBox(
             height: 20,
           ),
-          Text(
-            'زندگی نامه حضرت محمد مصطفی (ص)',
-            style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600),
+          Center(
+            child: AnimatedTextKit(repeatForever: true, animatedTexts: [
+              TypewriterAnimatedText('زندگی نامه حضرت محمد مصطفی (ص)',
+                  speed: Duration(milliseconds: 100),
+                  textStyle: const TextStyle(fontSize: 30, color: Colors.white))
+            ]),
           ),
           SizedBox(
             height: 20,
           ),
-          Text(
-            'الهم صلی علی محمد و آل محمد (ص)',
-            style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600),
+          Center(
+            child: AnimatedTextKit(repeatForever: true, animatedTexts: [
+              TypewriterAnimatedText('الهم صلی علی محمد و آل محمد (ص)',
+                  speed: Duration(milliseconds: 100),
+                  textStyle: const TextStyle(fontSize: 30, color: Colors.white))
+            ]),
           ),
           SizedBox(
             height: 20,
           ),
-          Text(
-            'پروژه فاینل',
-            style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            'نقیب الله نبی زاده',
-            style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Home();
-                }));
-              },
-              child: Text(
-                'ورود',
-                style: TextStyle(fontSize: 20),
-              ))
         ],
       )),
     ));
   }
 
-  // void _handleSplash() async {
-  //   await Future.delayed(Duration(seconds: 3));
-  //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-  //     return Home();
-  //   }));
-  // }
+  void _handleSplash() async {
+    await Future.delayed(Duration(seconds: 5));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return Home();
+    }));
+  }
 }
