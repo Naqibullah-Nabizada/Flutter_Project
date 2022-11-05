@@ -35,9 +35,9 @@ class Screen1 extends StatelessWidget {
                   border: Border.all(),
                   borderRadius: BorderRadius.circular(20)),
               padding: EdgeInsets.all(15),
-              margin: EdgeInsets.all(30),
+              margin: EdgeInsets.all(20),
               width: double.infinity,
-              height: 430,
+              height: 440,
               child: ListView(children: [
                 Column(
                   children: [
