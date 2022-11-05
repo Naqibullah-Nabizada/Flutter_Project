@@ -16,6 +16,6 @@ class Biography {
 
   @override
   String toString() {
-    return 'Biography{id: $id, title: $title, description: $description}';
+    return 'Biography {id: $id, title: $title, description: $description}';
   }
 }

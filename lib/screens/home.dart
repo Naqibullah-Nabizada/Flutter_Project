@@ -35,8 +35,8 @@ class _HomeState extends State<Home> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return Home();
-                    // return AddBio();
+                    // return Home();
+                    return AddBiography();
                   },
                 ));
               },
