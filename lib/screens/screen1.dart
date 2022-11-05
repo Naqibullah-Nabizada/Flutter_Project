@@ -1,10 +1,9 @@
+import 'package:app/model/data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Screen1 extends StatelessWidget {
-  const Screen1({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

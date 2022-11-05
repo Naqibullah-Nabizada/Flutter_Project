@@ -1,6 +1,9 @@
+import 'package:app/model/data_model.dart';
+import 'package:app/services/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:app/screens/add_bio.dart';
 // import 'package:sqflite/sqflite.dart';
 // import 'package:path_provider/path_provider.dart';
 
@@ -13,9 +16,14 @@ import 'package:app/screens/screen5.dart';
 import 'package:app/screens/screen6.dart';
 import 'package:app/screens/screen7.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({super.key});
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -23,6 +31,16 @@ class Home extends StatelessWidget {
         child: SafeArea(
             child: Scaffold(
           appBar: AppBar(title: Text("زندگی نامه حضرت محمد (ص)")),
+          floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return Home();
+                    // return AddBio();
+                  },
+                ));
+              },
+              child: Icon(Icons.add)),
           body: Column(children: [
             Container(
               padding: EdgeInsets.all(12),
@@ -34,7 +52,7 @@ class Home extends StatelessWidget {
                   TypewriterAnimatedText('لا اله الله محمد رسول الله',
                       speed: Duration(milliseconds: 100),
                       textStyle: const TextStyle(
-                          fontSize: 30, shadows: [Shadow(blurRadius: 30)]))
+                          fontSize: 30, shadows: [Shadow(blurRadius: 20)]))
                 ]),
               ),
             ),
