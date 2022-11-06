@@ -36,7 +36,7 @@ class DatabaseHelper {
     );
   }
 
-  static Future<List<Biography>?> getAllBio() async {
+  Future<List<Biography>?> getAllBio() async {
     final db = await _getDB();
     final List<Map<String, dynamic>> maps = await db.query('bio');
 
@@ -44,7 +44,12 @@ class DatabaseHelper {
       return null;
     }
 
-    // return List.generate(
-    //     maps.length, (index) => Biography(maps[index]));
+    return List.generate(maps.length, (index) {
+      return Biography(
+        id: maps[index]['id'],
+        title: maps[index]['title'],
+        description: maps[index]['description'],
+      );
+    });
   }
 }

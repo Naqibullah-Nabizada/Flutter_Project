@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:app/screens/splash.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-
 import 'model/data_model.dart';
+import 'services/database_helper.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -47,11 +47,14 @@ void main() async {
   //   });
   // }
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  // final DatabaseHelper database = DatabaseHelper();
+  // print(DatabaseHelper.getAllBio());
 
   @override
   Widget build(BuildContext context) {

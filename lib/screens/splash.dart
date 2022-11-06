@@ -1,6 +1,7 @@
 import 'package:app/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:app/services/database_helper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,6 +14,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _handleSplash();
+    DatabaseHelper result = DatabaseHelper();
+    // Future<List?> res = result.getAllBio();
   }
 
   @override

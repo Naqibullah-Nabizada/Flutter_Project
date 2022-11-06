@@ -5,24 +5,24 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../model/data_model.dart';
 
 class AddBiography extends StatelessWidget {
-  final Biography;
+  final Biography? biography;
 
-  const AddBiography({Key? key, this.Biography}) : super(key: key);
+  const AddBiography({Key? key, this.biography}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final titleController = TextEditingController();
     final descriptionConroller = TextEditingController();
 
-    if (Biography != null) {
-      titleController.text = Biography!.title;
-      descriptionConroller.text = Biography!.description;
+    if (biography != null) {
+      titleController.text = biography!.title;
+      descriptionConroller.text = biography!.description;
     }
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
           appBar: AppBar(
-            title: Text(Biography == null
+            title: Text(biography == null
                 ? 'اضافه نمودن معلومات جدید'
                 : 'ویرایش معلومات'),
             centerTitle: true,
@@ -92,12 +92,12 @@ class AddBiography extends StatelessWidget {
                               gravity: ToastGravity.BOTTOM,
                             );
                           } else {
-                            final model = Biography(
-                              id: Biography.id,
+                            final Biography model = Biography(
+                              id: biography?.id,
                               title: title,
                               description: description,
                             );
-                            if (Biography == null) {
+                            if (biography == null) {
                               await DatabaseHelper.addBio(model);
                             } else {
                               await DatabaseHelper.updateBio(model);
@@ -122,7 +122,7 @@ class AddBiography extends StatelessWidget {
                                       Radius.circular(10),
                                     )))),
                         child: Text(
-                          Biography == null ? 'اضافه نمودن' : 'ویرایش',
+                          biography == null ? 'اضافه نمودن' : 'ویرایش',
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
